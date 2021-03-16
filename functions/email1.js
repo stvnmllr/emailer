@@ -7,26 +7,26 @@ console.log('super2');
 const { EMAIL_USER } = process.env;
 const { EMAIL_PASS } = process.env;
 
-// var transporter = nodemailer.createTransport({
-//     host: 'smtp.gmail.com',
-// //     port: 587, // SMTP PORT
-//     secure: true, // true for 465, false for other ports
-//     auth: {
-//         user: EMAIL_USER,
-//         pass: EMAIL_PASS
-//     }
-// });
+var transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+//     port: 587, // SMTP PORT
+    secure: true, // true for 465, false for other ports
+    auth: {
+        user: EMAIL_USER,
+        pass: EMAIL_PASS
+    }
+});
 
 exports.handler = (event, context, callback) => {
-//     const done = (err, res) => callback(null, {
-//         statusCode: err ? '400' : '200',
-//         body: err ? err.message : JSON.stringify(res),
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Access-Control-Allow-Origin': '*',
-//             'Access-Control-Allow-Methods': 'POST'
-//         },
-//     });
+    const done = (err, res) => callback(null, {
+        statusCode: err ? '400' : '200',
+        body: err ? err.message : JSON.stringify(res),
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            //'Access-Control-Allow-Methods': 'POST'
+        },
+    });
 
 //     let _body = JSON.parse(event.body);
 
@@ -45,12 +45,7 @@ exports.handler = (event, context, callback) => {
     };
 console.log(mailOptions)
     
-    
-    return {
-      statusCode: 200,
-      body: 'Hello, tehre'
-    }
-    //transporter.sendMail(mailOptions, done(null,_body));
+    transporter.sendMail(mailOptions, done(null,_body));
 };
 
 // convert the key as the label
