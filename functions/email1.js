@@ -28,7 +28,7 @@ exports.handler = (event, context, callback) => {
         },
     });
 
-//     let _body = JSON.parse(event.body);
+     let _body = {object: 1, fielda: '123'};
 
     let body_txt='<h2>Contact Form Details</h2>';
 //     for (var key in _body) {
