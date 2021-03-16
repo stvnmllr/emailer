@@ -17,6 +17,8 @@ var transporter = nodemailer.createTransport({
     }
 });
 
+console.log('super34' + EMAIL_USER);
+
 exports.handler = (event, context, callback) => {
     const done = (err, res) => callback(null, {
         statusCode: err ? '400' : '200',
@@ -45,7 +47,7 @@ exports.handler = (event, context, callback) => {
     };
 console.log(mailOptions)
     
-    transporter.sendMail(mailOptions, done(null,_body));
+//     transporter.sendMail(mailOptions, done(null,_body));
 };
 
 // convert the key as the label
