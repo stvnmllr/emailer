@@ -32,7 +32,7 @@ exports.handler = (event, context, callback) => {
 
      let _body = {object: 1, fielda: '123'};
 
-    let body_txt='<h2>Contact Form Details</h2>';
+    let body_txt='Contact Form Details';
 //     for (var key in _body) {
 //         var res = key.replace("_", " ");
 //         body_txt +='<p><strong>' + titleCase(res) +' : </strong>'+_body[key] + '</p>';
@@ -43,11 +43,11 @@ exports.handler = (event, context, callback) => {
         from: 'cmiordering@gmail.com',
         to: 'thatguy1177@gmail.com',
         subject: 'A new message for you',
-        html: body_txt
+        text: body_txt
     };
 console.log(mailOptions)
     
-//     transporter.sendMail(mailOptions, done(null,_body));
+     transporter.sendMail(mailOptions, done(null,_body));
 };
 
 // convert the key as the label
